@@ -1,0 +1,11 @@
+"AddonInfo"
+{
+	"name"				"false"
+	"version"			"true"
+	"up_date"			"false"
+	"author_name"			"yes"
+	"author_email"			"if"
+	"author_url"			"for"
+	"info"				"do"
+	"override"			"0"
+}
