@@ -16,7 +16,7 @@ SWEP.ViewModelFOV    = 60
 SWEP.Primary.Delay			= 0.1
 SWEP.Primary.Recoil			= 0
 SWEP.Primary.Automatic = false
-SWEP.Primary.Ammo = "Pistol"
+SWEP.Primary.Ammo = "Thumper"
 SWEP.Primary.Damage = 0.5
 SWEP.Primary.Cone = 0
 SWEP.Primary.ClipSize = 1337
@@ -30,3 +30,6 @@ SWEP.WorldModel			= "models/weapons/w_rocket_launcher.mdl"
 
 SWEP.UseHands			= true
 SWEP.ViewModelFlip		= false
+
+function SWEP:Reload()
+end
