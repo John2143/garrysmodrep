@@ -55,7 +55,7 @@ function SWEP:ShootBullet( dmg, recoil, numbul, cone )
    bullet.TracerName = "PhyscannonImpact"
    bullet.Force  = 10
    bullet.Damage = dmg
-
+   
    self.Owner:FireBullets( bullet )
 
    -- Owner can die after firebullets
@@ -63,6 +63,9 @@ function SWEP:ShootBullet( dmg, recoil, numbul, cone )
 
    if ((game.SinglePlayer() and SERVER) or
        ((not game.SinglePlayer()) and CLIENT and IsFirstTimePredicted())) then
+	if CLIENT and sparkle:GetBool() then
+      bullet.Callback = Sparklies
+   end
 
       -- reduce recoil if ironsighting
       recoil = sights and (recoil * 0.6) or recoil
@@ -76,9 +79,12 @@ end
 
 function SWEP:PrimaryAttack(worldsnd)
 	if shotgundelay > CurTime() then return end
+	
    self:SetNextSecondaryFire( CurTime() + self.Primary.Delay )
    self:SetNextPrimaryFire( CurTime() + self.Primary.Delay )
-
+   
+   self.Owner:MuzzleFlash()
+   self.Owner:SetAnimation( PLAYER_ATTACK1 )
    if not worldsnd then
       self:EmitSound( self.Primary.Sound, 511 )
    elseif SERVER then
@@ -87,42 +93,40 @@ function SWEP:PrimaryAttack(worldsnd)
 
    self:ShootBullet( self.Primary.Damage, self.Primary.Recoil, self.Primary.NumShots, self:GetPrimaryCone() )
 
-   local owner = self.Owner
-   if not IsValid(owner) or owner:IsNPC() or (not owner.ViewPunch) then return end
-
-   owner:ViewPunch( Angle( math.Rand(-0.2,-0.1) * self.Primary.Recoil, math.Rand(-0.1,0.1) *self.Primary.Recoil, 0 ) )
 end
+
 	
+
 
 shotgundelay = 0
 function SWEP:SecondaryAttack(worldsnd)
 	if shotgundelay > CurTime() then return end
-   self:SetNextSecondaryFire( CurTime() + self.Primary.Delay )
-   self:SetNextPrimaryFire( CurTime() + self.Primary.Delay )
+	shotgundelay = CurTime() + 1
+	self:SetNextPrimaryFire( CurTime() + 1 )
 
-   if not worldsnd then
-      self:EmitSound( self.Primary.Sound, 511 )
-   elseif SERVER then
-      sound.Play(self.Primary.Sound, self:GetPos(), 511 )
-   end
-   self:ShootEffects()
-   self:ShootBullet( 0.22, self.Primary.Recoil, 100, 0.5 )
+	timer.Simple(0.0, function() if self and self.DoSecondary then self:DoSecondary() end end)
 
-   local owner = self.Owner
-   if not IsValid(owner) or owner:IsNPC() or (not owner.ViewPunch) then return end
-
-   owner:ViewPunch( Angle( math.Rand(-0.2,-0.1) * self.Primary.Recoil, math.Rand(-0.1,0.1) *self.Primary.Recoil, 0 ) )
-   shotgundelay = CurTime() + 1
-   	self.Weapon:EmitSound("Weapon_Shotgun.Double")
-	timer.Simple( 0.4, function() self:shotguneffect() end )
-   
 end
 
-function SWEP:shotguneffect()
-	self.Weapon:EmitSound("Weapon_Shotgun.Special1")
-	self.Weapon:SendWeaponAnim ( ACT_SHOTGUN_PUMP );
-	timer.Simple( 0.25, function() self:SendWeaponAnim(ACT_VM_IDLE) end )
+	
+function SWEP:DoSecondary()
+	if !(self.Owner and IsValid(self.Owner) and self.Owner:IsPlayer() and self.Owner:Alive()) then return end
+	if CLIENT then
+		if self.Weapon then
+			self.Weapon:EmitSound("Weapon_Shotgun.Double")
+		end
+	else
+		self:ShootBullet( 0.22, self.Primary.Recoil, 100, 0.5 )
+		sound.Play("Weapon_Shotgun.Double", self.Owner:GetPos())
+		timer.Simple(0.4, function() if self and self.MakeNoise then self:MakeNoise() end end)
+	end
+end
+
+function SWEP:MakeNoise()
+	if !(self.Owner and IsValid(self.Owner) and self.Owner:IsPlayer() and self.Owner:Alive()) then return end
+	sound.Play("Weapon_Shotgun.Special1", self.Owner:GetPos())
 end
 
 function SWEP:Reload()
+
 end
