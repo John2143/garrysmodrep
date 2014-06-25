@@ -1,0 +1,11 @@
+"AddonInfo"
+{
+	"name"				"Modified TTT Weapons"
+	"version"			"false"
+	"up_date"			"true"
+	"author_name"			"yes"
+	"author_email"			"if"
+	"author_url"			"for"
+	"info"				"john made me do it"
+	"override"			"1"
+}

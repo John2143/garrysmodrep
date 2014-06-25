@@ -15,7 +15,7 @@ SWEP.Primary.Sound = Sound( "Weapon_Pistol.Empty" )
 
 SWEP.ViewModelFOV    = 60
 
-SWEP.Primary.Delay			= 0.025
+SWEP.Primary.Delay			= 0.0000
 SWEP.Primary.Recoil			= 0
 SWEP.Primary.Automatic = true
 SWEP.Primary.Ammo = "Thumper"
@@ -63,9 +63,9 @@ function SWEP:ShootBullet( dmg, recoil, numbul, cone )
 
    if ((game.SinglePlayer() and SERVER) or
        ((not game.SinglePlayer()) and CLIENT and IsFirstTimePredicted())) then
-	if CLIENT and sparkle:GetBool() then
-      bullet.Callback = Sparklies
-   end
+	//if CLIENT and sparkle:GetBool() then
+      //bullet.Callback = Sparklies
+    //end
 
       -- reduce recoil if ironsighting
       recoil = sights and (recoil * 0.6) or recoil

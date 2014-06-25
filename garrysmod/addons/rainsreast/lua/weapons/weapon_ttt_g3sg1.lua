@@ -3,8 +3,8 @@ AddCSLuaFile()
 SWEP.HoldType			= "crossbow"
 
 if CLIENT then
-   SWEP.PrintName			= "G3-SG1"
-   SWEP.Slot				= 2
+   SWEP.PrintName			= "Silenced G3-SG1"
+   SWEP.Slot				= 6
 
    SWEP.Icon = "vgui/ttt/icon_g3sg1er"
 end
@@ -12,19 +12,27 @@ end
 SWEP.Base				= "weapon_tttbase"
 SWEP.Spawnable = true
 
-SWEP.Kind = WEAPON_HEAVY
+SWEP.Kind = WEAPON_EQUIP
 
-SWEP.Primary.Delay			= 0.25
+SWEP.CanBuy = { ROLE_TRAITOR }
+
+SWEP.IsSilent = true
+
+SWEP.Primary.Delay			= 0.5
 SWEP.Primary.Recoil			= 4
-SWEP.Primary.Automatic = true
+SWEP.Primary.Automatic = false
 SWEP.Primary.Ammo = "357"
-SWEP.Primary.Damage = 33
-SWEP.Primary.Cone = 0.015
-SWEP.Primary.ClipSize = 20
-SWEP.Primary.ClipMax = 60
-SWEP.Primary.DefaultClip = 20
+SWEP.Primary.Damage = 37
+SWEP.Primary.Cone = 0.01
+SWEP.Primary.ClipSize = 5
+SWEP.Primary.ClipMax = 10
+SWEP.Primary.DefaultClip = 5
 SWEP.AutoSpawnable      = true
 SWEP.AmmoEnt = "item_ammo_357_ttt"
+
+SWEP.MovementPenalty = 0.2
+SWEP.ResetTime = 1.2
+SWEP.BaseInaccuracy = 0
 
 SWEP.UseHands			= true
 SWEP.ViewModelFlip		= false
@@ -32,13 +40,37 @@ SWEP.ViewModelFOV		= 64
 SWEP.ViewModel			= "models/weapons/cstrike/c_snip_g3sg1.mdl"
 SWEP.WorldModel			= "models/weapons/w_snip_g3sg1.mdl"
 
-SWEP.Primary.Sound = Sound( "Weapon_G3SG1.Single" )
+SWEP.Primary.Sound = Sound( "weapons/usp/usp1.wav" )
+SWEP.Primary.SoundLevel = 50
 
-SWEP.IronSightsPos = Vector(-6.16, -4.361, -1.759)
+
+SWEP.IronSightsPos = Vector(0, 0, 0)
 SWEP.IronSightsAng = Vector(0, 0, 0)
 
 
 SWEP.Secondary.Sound = Sound("Default.Zoom")
+SWEP.PrimaryAnim = ACT_VM_PRIMARYATTACK_SILENCED
+SWEP.ReloadAnim = ACT_VM_RELOAD_SILENCED
+
+   SWEP.EquipMenuData = {
+      type = "Weapon",
+      desc = "Kill people and cause rage, but silently."
+   };
+
+
+
+function SWEP:Deploy()
+   self:SendWeaponAnim(ACT_VM_DRAW_SILENCED)
+   return true
+end
+
+-- We were bought as special equipment, and we have an extra to give
+function SWEP:WasBought(buyer)
+   if IsValid(buyer) then -- probably already self.Owner
+      buyer:GiveAmmo( 5, "357" )
+   end
+end
+
 
 function SWEP:SetZoom(state)
     if CLIENT then
