@@ -15,16 +15,21 @@ SWEP.Spawnable = true
 SWEP.Kind = WEAPON_HEAVY
 
 SWEP.Primary.Delay			= 0.1
-SWEP.Primary.Recoil			= 3
+SWEP.Primary.Recoil			= 6
 SWEP.Primary.Automatic = true
 SWEP.Primary.Ammo = "pistol"
-SWEP.Primary.Damage = 18
+SWEP.Primary.Damage = 17
 SWEP.Primary.Cone = 0.01
-SWEP.Primary.ClipSize = 30
+SWEP.Primary.ClipSize = 24
 SWEP.Primary.ClipMax = 60
-SWEP.Primary.DefaultClip = 30
+SWEP.Primary.DefaultClip = 24
 SWEP.AutoSpawnable      = true
 SWEP.AmmoEnt = "item_ammo_pistol_ttt"
+
+SWEP.MovementPenalty = 0.07
+SWEP.ResetTime = 2
+SWEP.BaseInaccuracy = 0
+
 
 SWEP.UseHands			= true
 SWEP.ViewModelFlip		= false

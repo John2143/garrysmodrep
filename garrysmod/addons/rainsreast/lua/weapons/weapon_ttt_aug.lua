@@ -14,17 +14,21 @@ SWEP.Spawnable = true
 
 SWEP.Kind = WEAPON_HEAVY
 
-SWEP.Primary.Delay			= 0.15
-SWEP.Primary.Recoil			= 2
+SWEP.Primary.Delay			= 0.2
+SWEP.Primary.Recoil			= 1.5
 SWEP.Primary.Automatic = true
 SWEP.Primary.Ammo = "Pistol"
-SWEP.Primary.Damage = 20
+SWEP.Primary.Damage = 23
 SWEP.Primary.Cone = 0.02
 SWEP.Primary.ClipSize = 20
 SWEP.Primary.ClipMax = 60
 SWEP.Primary.DefaultClip = 20
 SWEP.AutoSpawnable      = true
 SWEP.AmmoEnt = "item_ammo_pistol_ttt"
+
+SWEP.MovementPenalty = 0.04
+SWEP.ResetTime = 1
+SWEP.BaseInaccuracy = 0
 
 SWEP.UseHands			= true
 SWEP.ViewModelFlip		= false
@@ -34,7 +38,7 @@ SWEP.WorldModel			= "models/weapons/w_rif_aug.mdl"
 
 SWEP.Primary.Sound = Sound( "Weapon_AUG.Single" )
 
-SWEP.IronSightsPos = Vector(-7.56, -4.361, -2.079)
+SWEP.IronSightsPos = Vector(0, 0, 0)
 SWEP.IronSightsAng = Vector(0, 0, 0)
 
 

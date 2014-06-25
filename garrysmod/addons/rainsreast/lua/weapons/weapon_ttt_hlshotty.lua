@@ -15,17 +15,21 @@ SWEP.Spawnable = true
 SWEP.Kind = WEAPON_HEAVY
 
 SWEP.Primary.Delay			= 1
-SWEP.Primary.Recoil			= 3
+SWEP.Primary.Recoil			= 12
 SWEP.Primary.Automatic = false
 SWEP.Primary.Ammo = "buckshot"
-SWEP.Primary.Damage = 8
-SWEP.Primary.Cone = 0.2
+SWEP.Primary.Damage = 11
+SWEP.Primary.Cone = 0.077
 SWEP.Primary.ClipSize = 6
 SWEP.Primary.ClipMax = 24
 SWEP.Primary.DefaultClip = 6
 SWEP.Primary.NumShots = 7
 SWEP.AutoSpawnable      = true
 SWEP.AmmoEnt = "item_box_buckshot_ttt"
+
+SWEP.MovementPenalty = 0.1
+SWEP.ResetTime = 0.4
+SWEP.BaseInaccuracy = 0.077
 
 SWEP.UseHands			= true
 SWEP.ViewModelFlip		= false
@@ -42,6 +46,8 @@ SWEP.nextreloadfinish = 0
 
 SWEP.ReloadDelay = 0.4
 SWEP.IdleAnimation = 0
+
+SWEP.BaseInaccuracy = 0.077
 
 function SWEP:Deploy()
 	self.Weapon:SendWeaponAnim( ACT_VM_DEPLOY )
@@ -82,7 +88,7 @@ function SWEP:PrimaryAttack(worldsnd)
       sound.Play(self.Primary.Sound, self:GetPos(), self.Primary.SoundLevel)
    end
 
-   self:ShootBullet( self.Primary.Damage, self.Primary.Recoil, self.Primary.NumShots, self:GetPrimaryCone() )
+   self:ShootBullet( self.Primary.Damage, self.Primary.Recoil, self.Primary.NumShots, 0.2 )
 
    self:TakePrimaryAmmo( 1 )
 
@@ -101,10 +107,10 @@ function SWEP:SecondaryAttack()
 	self.Weapon:SetNextSecondaryFire( CurTime() + 0.8 )	
 	self.Weapon:SetNextPrimaryFire( CurTime() + 0.8 )
 	
-	self:ShootBullet( 6, 15, self.Primary.NumShots * 2, self:GetPrimaryCone() )
+	self:ShootBullet( 1.5, 32, 100, 2 )
 	
 	self:TakePrimaryAmmo( 2 )
-		self.Owner:ViewPunch( Angle( -6, 0, 0 ) )
+		self.Owner:ViewPunch( Angle( -32, 0, 0 ) )
 	self.Weapon:EmitSound("Weapon_Shotgun.Double")
 	timer.Simple( 0.25, function() if self and self.shotguneffect then self:shotguneffect() end end )
 end	

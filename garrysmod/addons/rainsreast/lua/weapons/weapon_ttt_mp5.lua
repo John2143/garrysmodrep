@@ -18,13 +18,17 @@ SWEP.Primary.Delay			= 0.08
 SWEP.Primary.Recoil			= 3
 SWEP.Primary.Automatic = true
 SWEP.Primary.Ammo = "Pistol"
-SWEP.Primary.Damage = 13
-SWEP.Primary.Cone = 0.05
+SWEP.Primary.Damage = 14
+SWEP.Primary.Cone = 0.1
 SWEP.Primary.ClipSize = 30
 SWEP.Primary.ClipMax = 60
 SWEP.Primary.DefaultClip = 30
 SWEP.AutoSpawnable      = true
 SWEP.AmmoEnt = "item_ammo_pistol_ttt"
+
+SWEP.MovementPenalty = 0.02
+SWEP.ResetTime = 0.5
+SWEP.BaseInaccuracy = 0
 
 SWEP.UseHands			= true
 SWEP.ViewModelFlip		= false

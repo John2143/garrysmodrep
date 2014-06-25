@@ -15,16 +15,20 @@ SWEP.Spawnable = true
 SWEP.Kind = WEAPON_HEAVY
 
 SWEP.Primary.Delay			= 0.09
-SWEP.Primary.Recoil			= 1.6
+SWEP.Primary.Recoil			= 5
 SWEP.Primary.Automatic = true
 SWEP.Primary.Ammo = "Pistol"
-SWEP.Primary.Damage = 17
-SWEP.Primary.Cone = 0.03
+SWEP.Primary.Damage = 12
+SWEP.Primary.Cone = 0.06
 SWEP.Primary.ClipSize = 25
 SWEP.Primary.ClipMax = 60
 SWEP.Primary.DefaultClip = 25
 SWEP.AutoSpawnable      = true
 SWEP.AmmoEnt = "item_ammo_pistol_ttt"
+
+SWEP.MovementPenalty = 0.04
+SWEP.ResetTime = 0.8
+SWEP.BaseInaccuracy = 0
 
 SWEP.UseHands			= true
 SWEP.ViewModelFlip		= false
@@ -34,5 +38,5 @@ SWEP.WorldModel			= "models/weapons/w_rif_galil.mdl"
 
 SWEP.Primary.Sound = Sound( "Weapon_Galil.Single" )
 
-SWEP.IronSightsPos = Vector(-1.961, -6, 2.839)
+SWEP.IronSightsPos = Vector(-6.38, -6, 2.5)
 SWEP.IronSightsAng = Vector(0, 0, 0)
