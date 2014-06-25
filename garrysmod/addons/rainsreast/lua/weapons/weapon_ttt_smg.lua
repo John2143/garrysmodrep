@@ -18,13 +18,17 @@ SWEP.Primary.Delay			= 0.075
 SWEP.Primary.Recoil			= 1.6
 SWEP.Primary.Automatic = true
 SWEP.Primary.Ammo = "SMG1"
-SWEP.Primary.Damage = 9
-SWEP.Primary.Cone = 0.05
+SWEP.Primary.Damage = 8
+SWEP.Primary.Cone = 0.09
 SWEP.Primary.ClipSize = 45
 SWEP.Primary.ClipMax = 60
 SWEP.Primary.DefaultClip = 45
 SWEP.AutoSpawnable      = true
 SWEP.AmmoEnt = "item_ammo_smg_ttt"
+
+SWEP.MovementPenalty = 0.03
+SWEP.ResetTime = 1
+SWEP.BaseInaccuracy = 0
 
 SWEP.UseHands			= true
 SWEP.ViewModelFlip		= false

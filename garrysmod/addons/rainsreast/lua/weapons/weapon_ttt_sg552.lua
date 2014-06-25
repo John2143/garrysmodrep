@@ -15,22 +15,26 @@ SWEP.Spawnable = true
 SWEP.Kind = WEAPON_HEAVY
 
 SWEP.Primary.Delay			= 0.09009009009
-SWEP.Primary.Recoil			= 0.3
+SWEP.Primary.Recoil			= 2
 SWEP.Primary.Automatic = true
 SWEP.Primary.Ammo = "smg1"
-SWEP.Primary.Damage = 17
-SWEP.Primary.Cone = 0.00
+SWEP.Primary.Damage = 14
+SWEP.Primary.Cone = 0.045
 SWEP.Primary.ClipSize = 30
 SWEP.Primary.ClipMax = 60
 SWEP.Primary.DefaultClip = 30
 SWEP.AutoSpawnable      = true
-SWEP.AmmoEnt = "item_ammo_smg_ttt"
+SWEP.AmmoEnt = "item_ammo_smg1_ttt"
+
+SWEP.MovementPenalty = 0.1
+SWEP.ResetTime = 2
+SWEP.BaseInaccuracy = 0
 
 SWEP.UseHands			= true
 SWEP.ViewModelFlip		= false
 SWEP.ViewModelFOV		= 64
-SWEP.ViewModel			= "models/weapons/cstrike/c_snip_sg550.mdl"
-SWEP.WorldModel			= "models/weapons/w_snip_sg550.mdl"
+SWEP.ViewModel			= "models/weapons/cstrike/c_rif_sg552.mdl"
+SWEP.WorldModel			= "models/weapons/w_rif_sg552.mdl"
 
 SWEP.Primary.Sound = Sound( "Weapon_SG552.Single" )
 

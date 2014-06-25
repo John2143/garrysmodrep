@@ -7,5 +7,5 @@
 	"author_email"			"if"
 	"author_url"			"for"
 	"info"				"do"
-	"override"			"0"
+	"override"			"1"
 }

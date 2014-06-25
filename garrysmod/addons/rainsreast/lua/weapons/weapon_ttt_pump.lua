@@ -18,14 +18,18 @@ SWEP.Primary.Delay			= 1.2
 SWEP.Primary.Recoil			= 10
 SWEP.Primary.Automatic = true
 SWEP.Primary.Ammo = "Buckshot"
-SWEP.Primary.Damage = 16
-SWEP.Primary.Cone = 0.3
+SWEP.Primary.Damage = 6
+SWEP.Primary.Cone = 0.12
 SWEP.Primary.ClipSize = 6
 SWEP.Primary.ClipMax = 24
 SWEP.Primary.DefaultClip = 6
-SWEP.Primary.NumShots = 8
+SWEP.Primary.NumShots = 12
 SWEP.AutoSpawnable      = true
 SWEP.AmmoEnt = "item_box_buckshot_ttt"
+
+SWEP.MovementPenalty = 0.02
+SWEP.ResetTime = 0.4
+SWEP.BaseInaccuracy = 0.12
 
 SWEP.UseHands			= true
 SWEP.ViewModelFlip		= false
@@ -35,9 +39,10 @@ SWEP.WorldModel			= "models/weapons/w_shot_m3super90.mdl"
 
 SWEP.Primary.Sound = Sound( "Weapon_M3.Single" )
 
-SWEP.IronSightsPos = Vector(-4.68, -10.521, 3.359)
+SWEP.IronSightsPos = Vector(-7.68, -10.521, 3.659)
 SWEP.IronSightsAng = Vector(-0.7, 0, 0)
 
+SWEP.BaseInaccuracy = 0.15
 
 SWEP.reloadtimer = 0
 

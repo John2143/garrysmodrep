@@ -4,7 +4,7 @@ SWEP.HoldType			= "pistol"
 
 if CLIENT then
    SWEP.PrintName			= "P228"
-   SWEP.Slot				= 2
+   SWEP.Slot				= 1
 
    SWEP.Icon = "vgui/ttt/icon_p228er"
 end
@@ -14,17 +14,21 @@ SWEP.Spawnable = true
 
 SWEP.Kind = WEAPON_PISTOL
 
-SWEP.Primary.Delay			= 0.15
-SWEP.Primary.Recoil			= 1.6
-SWEP.Primary.Automatic = false
+SWEP.Primary.Delay			= 0.1
+SWEP.Primary.Recoil			= 5
+SWEP.Primary.Automatic = true
 SWEP.Primary.Ammo = "Pistol"
-SWEP.Primary.Damage = 19
-SWEP.Primary.Cone = 0.015
+SWEP.Primary.Damage = 11
+SWEP.Primary.Cone = 0.04
 SWEP.Primary.ClipSize = 13
 SWEP.Primary.ClipMax = 60
 SWEP.Primary.DefaultClip = 13
 SWEP.AutoSpawnable      = true
 SWEP.AmmoEnt = "item_ammo_pistol_ttt"
+
+SWEP.MovementPenalty = 0.04
+SWEP.ResetTime = 0.9
+SWEP.BaseInaccuracy = 0
 
 SWEP.UseHands			= true
 SWEP.ViewModelFlip		= false

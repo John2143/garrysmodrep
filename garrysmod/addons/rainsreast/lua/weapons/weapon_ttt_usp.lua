@@ -4,7 +4,7 @@ SWEP.HoldType			= "pistol"
 
 if CLIENT then
    SWEP.PrintName			= "USP"
-   SWEP.Slot				= 2
+   SWEP.Slot				= 1
 
    SWEP.Icon = "vgui/ttt/icon_usper"
 end
@@ -12,19 +12,24 @@ end
 SWEP.Base				= "weapon_tttbase"
 SWEP.Spawnable = true
 
-SWEP.Kind = WEAPON_HEAVY
+SWEP.Kind = WEAPON_PISTOL
 
-SWEP.Primary.Delay			= 0.15
+SWEP.Primary.Delay			= 0.5
 SWEP.Primary.Recoil			= 1.6
 SWEP.Primary.Automatic = true
 SWEP.Primary.Ammo = "Pistol"
-SWEP.Primary.Damage = 16
-SWEP.Primary.Cone = 0.015
-SWEP.Primary.ClipSize = 12
+SWEP.Primary.Damage = 23
+SWEP.Primary.Cone = 0.01
+SWEP.Primary.ClipSize = 16
 SWEP.Primary.ClipMax = 60
 SWEP.Primary.DefaultClip = 12
 SWEP.AutoSpawnable      = true
 SWEP.AmmoEnt = "item_ammo_pistol_ttt"
+
+SWEP.MovementPenalty = 0.01
+SWEP.ResetTime = 0.7
+SWEP.BaseInaccuracy = 0
+
 
 SWEP.UseHands			= true
 SWEP.ViewModelFlip		= false
